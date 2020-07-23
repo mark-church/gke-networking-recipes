@@ -1,0 +1,52 @@
+apiVersion: networking.gke.io/v1
+kind: MultiClusterIngress
+metadata:
+  name: zoneprinter
+  namespace: zoneprinter
+spec:
+  template:
+    spec:
+      backend:
+        serviceName: default-backend
+        servicePort: 9999
+      rules:
+      - host: zone1.example.com
+        backend:
+          serviceName: zone1
+          servicePort: 8080
+      - host: zone2.example.com
+        backend:
+          serviceName: zone2
+          servicePort: 8080
+---
+apiVersion: networking.gke.io/v1
+kind: MultiClusterService
+metadata:
+  name: zone1
+  namespace: zoneprinter
+spec:
+  template:
+    spec:
+      selector:
+        app: zone1
+      ports:
+      - name: web
+        protocol: TCP
+        port: 8080
+        targetPort: 8080
+---
+apiVersion: networking.gke.io/v1
+kind: MultiClusterService
+metadata:
+  name: zone2
+  namespace: zoneprinter
+spec:
+  template:
+    spec:
+      selector:
+        app: zone2
+      ports:
+      - name: web
+        protocol: TCP
+        port: 8080
+        targetPort: 8080

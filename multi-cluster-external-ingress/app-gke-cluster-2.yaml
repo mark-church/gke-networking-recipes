@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zoneprinter
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zone1
+  namespace: zoneprinter
+  labels:
+    app: zone1
+spec:
+  selector:
+    matchLabels:
+      app: zone1
+  template:
+    metadata:
+      labels:
+        app: zone1
+    spec:
+      containers:
+      - name: frontend
+        image: gcr.io/google-samples/zone-printer:0.2
+        ports:
+        - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zone2
+  namespace: zoneprinter
+  labels:
+    app: zone2
+spec:
+  selector:
+    matchLabels:
+      app: zone2
+  template:
+    metadata:
+      labels:
+        app: zone2
+    spec:
+      containers:
+      - name: frontend
+        image: gcr.io/google-samples/zone-printer:0.2
+        ports:
+        - containerPort: 8080
