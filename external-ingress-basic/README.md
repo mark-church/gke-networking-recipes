@@ -8,7 +8,7 @@ External Ingress on GKE deploys a global External HTTP(S) Load Balancer for publ
 - HTTP host and path-based load balancing for one to many Services behind the same public VIP
 
 
-[basic external ingress](images/external-ingress-basic.png)
+![basic external ingress](images/external-ingress-basic.png)
 
 ### Ingress Manifests
 
@@ -53,14 +53,14 @@ spec:
 
 1. Download this repo and navigate to this folder
 
-```
-
-
+```sh
+$ git clone https://github.com/mark-church/gke-networking-recipes
+$ cd gke-networking-recipes/external-ingress-basic
 ```
 
 2. Deploy the Ingress, Deployment, and Service resources.
 
-```bash
+```sh
 $ kubectl apply -f external-ingress-basic.yaml
 ingress.networking.k8s.io/foo-external created
 service/foo created
