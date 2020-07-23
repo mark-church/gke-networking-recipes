@@ -8,7 +8,7 @@ External Ingress on GKE deploys a global External HTTP(S) Load Balancer for publ
 - HTTP host and path-based load balancing for one to many Services behind the same public VIP
 
 
-![basic external ingress](images/external-ingress-basic.png)
+![basic external ingress](../images/external-ingress-basic.png)
 
 ### Ingress Manifests
 
