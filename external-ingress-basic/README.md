@@ -1,6 +1,6 @@
 # Basic External Ingress
 
-External Ingress on GKE deploys a global External HTTP(S) Load Balancer for public internet load balancing. This example deploys an application on GKE and exposes the application with a public load balanced IP address.
+External Ingress on GKE deploys a global External HTTP(S) Load Balancer for public internet load balancing. This example deploys an application on GKE and exposes the application with a public load balanced IP address. See the [external-ingress-basic.yaml](external-ingress-basic.yaml) manifest for the full deployment spec.
 
 
 **Use Cases:**
@@ -58,7 +58,7 @@ $ git clone https://github.com/mark-church/gke-networking-recipes
 $ cd gke-networking-recipes/external-ingress-basic
 ```
 
-2. Deploy the Ingress, Deployment, and Service resources.
+2. Deploy the Ingress, Deployment, and Service resources in the [external-ingress-basic.yaml](external-ingress-basic.yaml) manifest.
 
 ```sh
 $ kubectl apply -f external-ingress-basic.yaml
@@ -72,9 +72,43 @@ deployment.apps/foo created
 3. It will take up to a minute for the Pods to deploy and up to a few minutes for the Ingress resource to be ready. Validate their progress and make sure that no errors are surfaced in the resource events.
 
 
-### Comments
+```
+$ kubectl get deploy foo
+NAME   READY   UP-TO-DATE   AVAILABLE   AGE
+foo    3/3     3            0           28s
 
+$ kubectl describe ingress foo-external
+Name:             foo-external
+Namespace:        default
+Address:          34.102.236.246
+Default backend:  default-http-backend:80 (10.32.1.8:8080)
+Rules:
+  Host             Path  Backends
+  ----             ----  --------
+  foo.example.com
+                      foo:80 ()
+Annotations:
+  ingress.kubernetes.io/url-map:                     k8s2-um-pnfsj460-default-foo-external-hbh8okhj
+  kubectl.kubernetes.io/last-applied-configuration:  {"apiVersion":"networking.k8s.io/v1beta1","kind":"Ingress","metadata":{"annotations":{"kubernetes.io/ingress.class":"gce"},"name":"foo-external","namespace":"default"},"spec":{"rules":[{"host":"foo.example.com","http":{"paths":[{"backend":{"serviceName":"foo","servicePort":80}}]}}]}}
 
+  kubernetes.io/ingress.class:            gce
+  ingress.kubernetes.io/backends:         {"k8s-be-30721--ffac2c0f6f368e56":"Unknown","k8s1-ffac2c0f-default-foo-80-19f3e1c4":"Unknown"}
+  ingress.kubernetes.io/forwarding-rule:  k8s2-fr-pnfsj460-default-foo-external-hbh8okhj
+  ingress.kubernetes.io/target-proxy:     k8s2-tp-pnfsj460-default-foo-external-hbh8okhj
+Events:
+  Type     Reason     Age                    From                     Message
+  ----     ------     ----                   ----                     -------
+  Normal   ADD        2m48s                  loadbalancer-controller  default/foo-external
+  Warning  Translate  2m48s (x7 over 2m48s)  loadbalancer-controller  error while evaluating the ingress spec: could not find service "default/foo"
+  Normal   CREATE     2m                     loadbalancer-controller  ip: 34.102.236.246
+```
+
+4. Finally, we can validate the data plane by sending traffic to our Ingress VIP.
+
+```sh
+$ curl -H "host: foo.example.com" 34.102.236.246
+
+```
 
 ### Cleanup
 
