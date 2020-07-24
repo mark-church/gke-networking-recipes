@@ -20,6 +20,8 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: foo-external
+  annotations:
+    kubernetes.io/ingress.class: "gce"
 spec:
   rules:
   - host: foo.example.com
