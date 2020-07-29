@@ -14,6 +14,7 @@ The goal for GKE Networking Recipes is to provide a bite-sized, easy to consume,
 - Each recipe should use the same example app (TDB) wherever possible to demonstrate the use-case. There may be use-cases that depend on specific application functionality so it is fine to diverge in these instances.
 - Recipes should rely on the shared [GKE cluster setup]() steps instead of instructing how to deploy the cluster or environment. Each recipe should focus on just the use-case without repeating any boilerplate setup. For special cases where a unique environment or more than one cluster is required, feel free to include these steps in the recipe.
 - There should be clear ownership of a recipe. Each recipe has one owner. If you contributed it then you own it until someone else has agreed to be the owner. If functionality changes and your recipe is no longer valid or no longer makes sense, it is your responsibility to update over time.
+- Each recipe should be listed as a bullet point with a brief description on the [primary README page](/)
 
 
 ### README guidelines
@@ -23,7 +24,7 @@ Each recipe's README should consist of the following sections. In general the RE
 	- A brief description of what this recipe accomplishes
 	- Any references to specific GKE features or GCP load balancers should be appropriately linked
 	- The use-cases that this recipe accomplishes should be listed
-	- A diagram [of this format]() should be used to describe the networking flow, example, or architecture wherever it makes sense
+	- A diagram [of this format]() should be used to describe the networking flow, example, or architecture wherever it makes sense. Images should go into the [`/images`](/images) folder.
 - Network manifests
 	- This section describes the primary capabilities and configuration format for the features that are highlighted in this recipe
 	- This section should only focus on the networking-related manifests but not show or describe all the manifests (such as app deployment)
