@@ -34,6 +34,11 @@ Each recipe's README should consist of the following sections. In general the RE
 - Example remarks
 - Cleanup
 
+## Recipe Ownership
+
+| Recipe  | Owner |
+| ------------- | ------------- |
+| [Basic External Ingress](/external-ingress-basic)  | [@mark-church](https://github.com/mark-church)  |
 
 
 ## Contributor License Agreement
