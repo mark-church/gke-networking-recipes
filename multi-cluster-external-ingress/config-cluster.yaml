@@ -8,16 +8,19 @@ spec:
     spec:
       backend:
         serviceName: default-backend
-        servicePort: 9999
+        servicePort: 8080
       rules:
       - host: foo.example.com
-        backend:
-          serviceName: foo
-          servicePort: 8080
-      - host: bar.example.com
-        backend:
-          serviceName: bar
-          servicePort: 8080
+        http:
+          paths:
+            - path: /foo
+              backend:
+                serviceName: foo
+                servicePort: 8080
+            - path: /bar
+              backend:
+                serviceName: bar
+                servicePort: 8080
 ---
 apiVersion: networking.gke.io/v1
 kind: MultiClusterService
