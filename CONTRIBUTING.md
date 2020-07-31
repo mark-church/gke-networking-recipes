@@ -44,10 +44,10 @@ Each recipe's README should consist of the following sections. In general the RE
 | [External LoadBalancer Service](/external-lb-service)  |   |
 | [Internal LoadBalancer Service](/internal-lb-service)  |   |
 | [Custom Ingress Health Check](/ingress-custom-http-health-check)  |   |
-| [Ingress gRPC Health Check](/ingress-custom-grpc-health-check)  |   |
-| [Basic Multi-Cluster Ingress](/external-ingress-basic)  |   |
-| [Multi-Cluster Ingress Blue-Green App Migration](/internal-ingress-basic)  |   |
-| [Multi-Cluster Ingress Blue-Green Cluster Migration](/external-ingress-basic)  |   |
+| [Ingress gRPC Health Check](/ingress-custom-grpc-health-check)  | [@rramkumar1](https://github.com/rramkumar1)  |
+| [Basic Multi-Cluster Ingress](/multi-cluster-external-ingress)  | [@mark-church](https://github.com/mark-church)  |
+| [Multi-Cluster Ingress Blue-Green App Migration](/multi-cluster-blue-green-app)  |   |
+| [Multi-Cluster Ingress Blue-Green Cluster Migration](/multi-cluster-blue-green-cluster)  |   |
 
 
 
