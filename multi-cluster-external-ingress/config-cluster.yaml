@@ -13,12 +13,13 @@ spec:
       - host: foo.example.com
         http:
           paths:
-            - path: /foo
-              backend:
+            - backend:
                 serviceName: foo
                 servicePort: 8080
-            - path: /bar
-              backend:
+      - host: bar.example.com
+        http:
+          paths:
+            - backend:
                 serviceName: bar
                 servicePort: 8080
 ---
