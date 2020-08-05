@@ -2,6 +2,8 @@
 
 Internal Ingress on GKE deploys a regional Internal HTTP(S) Load Balancer for private HTTP(S) load balancing. This example deploys an application on GKE and exposes the application with a private load balanced IP address. See the [internal-ingress-basic.yaml](internal-ingress-basic.yaml) manifest for the full deployment spec.
 
+Required GKE version: 1.16.5-gke.1 and later.
+
 
 **Use Cases:**
 - Private exposure of a GKE HTTP(S) internal application
