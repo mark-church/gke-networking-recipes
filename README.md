@@ -4,12 +4,12 @@ This repository contains various use cases and examples of GKE Networking. For e
 
 If you're not familiar with the basics of Kubernetes networking then check out [cluster networking](https://kubernetes.io/docs/concepts/cluster-administration/networking/) and [service networking](https://kubernetes.io/docs/concepts/services-networking/). These resources should give you some of the foundations behind Kubernetes networking.
 
-GKE is a managed Kubernetes platform that provides a more opinionated and seamless experience. For more information on GKE networking, check out some of the following resources:
-- [GKE Network Overview](https://cloud.google.com/kubernetes-engine/docs/concepts/network-overview)
-- [GKE Ingress Overview](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress)
-- [Ingress features](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-features)
+GKE is a managed Kubernetes platform that provides a more opinionated and seamless experience. For more information on GKE networking, check out [network overview](https://cloud.google.com/kubernetes-engine/docs/concepts/network-overview), [Ingress](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress), and [Service](https://cloud.google.com/kubernetes-engine/docs/how-to/exposing-apps) networking pages.
 
-### Ingress
+Each of the following recipes demonstrate specific networking use-cases in GKE. [Setup your GKE environment](./cluster-setup.md) and try out some of these recipes in your own kitchen.
+
+
+### Recipes
 
 - [Basic External Ingress](external-ingress-basic) - Deploy host-based routing through an internet-facing HTTP load balancer
 
