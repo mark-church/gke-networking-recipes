@@ -111,9 +111,27 @@ Events:
 
 Please note in the event logs that some firewall rules should be manually configured for health checks.
 
-4. Finally, we can validate the data plane by sending traffic to our Ingress VIP.
+4. Create a VM in the same VPC and the region as your GKE cluster to test the Internal Load Balancer as described in the [official documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balance-ingress#step_5_validate_successful_ingress_deployment).
+
+As an example, assuming you already have a Firewall Rule to allow SSH for instances with the "allow-ssh" tag:
 
 ```sh
+gcloud compute instances create l7-ilb-client \
+--image-family=debian-9 \
+--image-project=debian-cloud \
+--network=<YOUR_VPC> \
+--subnet=<YOUR_SUBNET> \
+--zone=us-<YOUR_REGION> \
+--tags=allow-ssh
+```
+
+5. Finally, we can validate the data plane by sending traffic to our Ingress VIP from this VM we created in step 4.
+
+```sh
+# SSH into the test VM
+$  gcloud compute ssh l7-ilb-client \
+--zone=<YOUR_ZONE>
+# Using curl from the test VM to the Internal Ingress VIP
 $ curl -H "host: foo.example.com" 10.200.10.218
 
 ```
@@ -124,4 +142,10 @@ $ curl -H "host: foo.example.com" 10.200.10.218
 
 ```sh
 kubectl delete -f internal-ingress-basic.yaml
+```
+
+Deleting the test VM created in step 4:
+
+```sh
+gcloud compute instances delete l7-ilb-client --zone <YOUR_ZONE>
 ```
