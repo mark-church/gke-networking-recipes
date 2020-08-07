@@ -10,7 +10,7 @@ Required GKE version: 1.16.5-gke.1 and later.
 - HTTP host and path-based load balancing for one to many Services behind the same private VIP
 
 
-![basic internal ingress](../images/internal-ingress-basic.png)
+![basic internal ingress](../../images/internal-ingress-basic.png)
 
 ### Networking Manifests
 
