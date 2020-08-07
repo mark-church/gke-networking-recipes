@@ -42,7 +42,7 @@ Each recipe's README should consist of the following sections. In general the RE
 | Recipe  | Owner |
 | ------------- | ------------- |
 | [Basic External Ingress](/external-ingress-basic)  | [@mark-church](https://github.com/mark-church)  |
-| [Baisc Internal Ingress](/internal-ingress-basic)  |  [@legranda](https://github.com/aurelienlegrand)  |
+| [Basic Internal Ingress](/internal-ingress-basic)  |  [@legranda](https://github.com/aurelienlegrand)  |
 | [External LoadBalancer Service](/external-lb-service)  |   |
 | [Internal LoadBalancer Service](/internal-lb-service)  |   |
 | [Custom Ingress Health Check](/ingress-custom-http-health-check)  |   |
