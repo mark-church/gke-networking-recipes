@@ -44,8 +44,7 @@ spec:
     spec:
       containers:
       - name: whereami
-        # This image will get replaced with google-samples image when it gets pushed
-        image: gcr.io/alexmattson-scratch/whereami:v1.1.0 
+        image: gcr.io/google-samples/whereami:v1.0.1 
         ports:
           - name: http
             containerPort: 8080

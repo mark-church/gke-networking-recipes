@@ -12,6 +12,10 @@ External Ingress on GKE deploys a global External HTTP(S) Load Balancer for publ
 - [Ingress for GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress)
 - [Ingress for External HTTP(S) Load Balancing](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress-xlb)
 
+#### Versions
+
+- All supported GKE versions
+
 
 ![basic external ingress](../../images/external-ingress-basic.png)
 

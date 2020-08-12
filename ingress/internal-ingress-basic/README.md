@@ -2,12 +2,19 @@
 
 Internal Ingress on GKE deploys a regional Internal HTTP(S) Load Balancer for private HTTP(S) load balancing. This example deploys an application on GKE and exposes the application with a private load balanced IP address. See the [internal-ingress-basic.yaml](internal-ingress-basic.yaml) manifest for the full deployment spec.
 
-Required GKE version: 1.16.5-gke.1 and later.
+### Use-cases
 
-
-**Use Cases:**
 - Private exposure of a GKE HTTP(S) internal application
 - HTTP host and path-based load balancing for one to many Services behind the same private VIP
+
+### Relevant documentation
+
+- [Ingress for GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress)
+- [Ingress for Internal HTTP(S) Load Balancing](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress-ilb
+
+### Versions
+
+- 1.16.5-gke.1 and later.
 
 
 ![basic internal ingress](../../images/internal-ingress-basic.png)
@@ -23,7 +30,7 @@ kind: Ingress
 metadata:
   name: foo-internal
   annotations:
-    kubernetes.io/ingress.class: "gce"
+    kubernetes.io/ingress.class: "gce-internal"
 spec:
   rules:
   - host: foo.example.com
@@ -138,7 +145,7 @@ $ curl -H "host: foo.example.com" 10.200.10.218
 
 ```
 ### Example Remarks
- 
+
 
 ### Cleanup
 
