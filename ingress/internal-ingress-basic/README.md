@@ -10,7 +10,7 @@ Internal Ingress on GKE deploys a regional Internal HTTP(S) Load Balancer for pr
 ### Relevant documentation
 
 - [Ingress for GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress)
-- [Ingress for Internal HTTP(S) Load Balancing](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress-ilb
+- [Ingress for Internal HTTP(S) Load Balancing](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress-ilb)
 
 ### Versions
 
